@@ -7,7 +7,7 @@ package ru.job4j.calculate;
 
 public class Calculate {
    /**
-   *Вывод строки в консоль
+   *Р’С‹РІРѕРґ СЃС‚СЂРѕРєРё РІ РєРѕРЅСЃРѕР»СЊ
    *@param args - args
    */	
   public static void main (String[] args) {
