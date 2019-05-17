@@ -1,9 +1,10 @@
+package ru.job4j.calculate;
+
 /**
  * @author Radchenko Andrey
  * @since 16.05.2019
  * @version 1.0
  */
-package ru.job4j.calculate;
 
 public class Calculate {
    /**
