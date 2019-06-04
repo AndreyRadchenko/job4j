@@ -20,7 +20,7 @@ public class ArrayChar {
         for (int i = 0; i < pref.length; i++) {
             if (pref[i] != wrd[i]) {
                 result = false;
-                break;// проверить. что массив data имеет первые элементы одинаковые с value
+                break; // проверить. что массив data имеет первые элементы одинаковые с value
             }
         }
         return result;
