@@ -4,7 +4,7 @@ package ru.job4j.array;
  * Проверка диагоналей на идентичность элементов
  * @author Radchenko Andrey (radchenko@yandex.ru)
  * @since 04.06.2019
- * @version 2.0
+ * @version 3.0
  */
 public class MatrixCheck {
 
@@ -15,17 +15,23 @@ public class MatrixCheck {
      */
     public boolean mono(boolean[][] data) {
         boolean result = true;
-        int i = 0;
-        for (int j = 0; j < data.length - 1; j++) {
-            if (data[i][j] != data[i + 1][j + 1]) {
+
+        for (int j = 1; j < data.length; j++) {
+
+            if(data[0][0] != data[j][j]) {
+
                 result = false;
+
+                break;
+
+            }
+            if (data[0][data.length - 1] != data[j][data.length - j - 1]) {
+
+                result = false;
+
                 break;
             }
-            if (data[i][data.length - i - 1] != data[i + 1][data.length - i - 2]) {
-                result = false;
-                break;
-            }
-            i++;
+
         }
         return result;
     }

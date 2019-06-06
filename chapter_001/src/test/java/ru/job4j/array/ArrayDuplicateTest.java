@@ -7,7 +7,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Test
  * @author Andrey Radchenko (radchenko@yandex.ru)
- * @since 04.06.2019
+ * @since 06.06.2019
  * @version 1.0
  */
 public class ArrayDuplicateTest {
