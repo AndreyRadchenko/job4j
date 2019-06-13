@@ -14,7 +14,6 @@ public class BubbleSort {
      * @return Отсортированный массив
      */
     public int[] sort(int[] array) {
-
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
                 int temp = array[j];

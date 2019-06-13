@@ -20,9 +20,7 @@ public class Counter {
             if (start % 2 == 0) {
                 sum += start;
             }
-
         }
-
         return sum;
     }
 }

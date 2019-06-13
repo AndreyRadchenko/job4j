@@ -13,7 +13,6 @@ public class Calculator {
      * @return результат
      */
     public double add(double first, double second) {
-
         return first + second;
     }
     /**
@@ -23,7 +22,6 @@ public class Calculator {
      * @return результат
      */
     public double subtract(double first, double second) {
-
         return first - second;
     }
     /**
