@@ -41,4 +41,24 @@ public class MaxTest {
         int result = max.max(2, 2);
         assertThat(result, is(2));
     }
+
+    /**
+     * Тест. Максимальное из 3 чисел
+     */
+    @Test
+    public void whenMax1To2To3Then3() {
+        Max max = new Max();
+        int result = max.max(1, 2, 3);
+        assertThat(result, is(3));
+    }
+
+    /**
+     * Тест. Максимальное из 3 чисел
+     */
+    @Test
+    public void whenMax1To3To4To2Then4() {
+        Max max = new Max();
+        int result = max.max(1, 2, 3, 4);
+        assertThat(result, is(4));
+    }
 }
