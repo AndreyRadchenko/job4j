@@ -6,7 +6,7 @@ public class Programmer extends Engineer {
 
     private String level = "Senior";
 
-    public void programming(){
+    public void programming() {
 
     }
 

@@ -10,15 +10,15 @@ public class Profession {
     private String birthday;
 
     public String getName() {
-        return this.name = name;
+        return  name;
     }
 
     public String getSurname() {
-        return this.surname = surname;
+        return surname;
     }
 
     public  String getEducation() {
-        return this.education = education;
+        return education;
     }
 
 }

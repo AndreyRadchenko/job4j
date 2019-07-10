@@ -1,6 +1,6 @@
 package ru.job4j.profession;
 
-public class Diagnose extends Doctor{
+public class Diagnose extends Doctor {
 
     private String cold = "Cold";
 
