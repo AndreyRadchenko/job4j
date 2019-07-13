@@ -90,6 +90,6 @@ public class TrackerTest {
         tracker.add(first);
         Item second = new Item("test2","testDescription2",1234L);
         tracker.add(second);
-        assertThat(second, is(tracker.findById(second.getId())));
+        assertThat(tracker.findById(second.getId()), is(second));
     }
 }

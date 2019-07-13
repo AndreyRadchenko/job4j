@@ -46,9 +46,13 @@ public class Tracker {
     public boolean replace(String id, Item item) {
         boolean result = false;
         if (item != null && this.findById(id) != null) {
-            int index = Arrays.asList(items).indexOf(this.findById(id));
-            items[index] = item;
-            result = true;
+            for (int i = 0; i <= position; i++) {
+                if (items[i].getId().equals(id)) {
+                    items[i] = item;
+                    result = true;
+                    break;
+                }
+            }
         }
 
         return result;
@@ -62,10 +66,14 @@ public class Tracker {
     public boolean delete(String id) {
         boolean result = false;
         if (this.findById(id) != null) {
-            int index = Arrays.asList(items).indexOf(this.findById(id));
-            System.arraycopy(items, index + 1, items, index, position - index);
-            position--;
-            result = true;
+            for (int index = 0; index <= position; index++) {
+                if (items[index].getId().equals(id)) {
+                    System.arraycopy(items, index + 1, items, index, position - index);
+                    position--;
+                    result = true;
+                    break;
+                }
+            }
         }
         return result;
     }
@@ -75,11 +83,7 @@ public class Tracker {
      * @return список заявок
      */
     public Item[] getAll() {
-        Item[] result = new Item[this.position];
-        for (int index = 0; index != this.position; index++) {
-            result[index] = this.items[index];
-        }
-        return result;
+        return Arrays.copyOf(this.items, this.position);
     }
 
     /**
@@ -107,10 +111,12 @@ public class Tracker {
      */
     public Item findById(String id) {
         Item result = null;
-        for (Item item : items) {
-            if (item != null && item.getId().equals(id)) {
-                result = item;
-                break;
+        if (items.length != 0) {
+            for (Item item : items) {
+                if (item != null && item.getId().equals(id)) {
+                    result = item;
+                    break;
+                }
             }
         }
         return result;
