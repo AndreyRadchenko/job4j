@@ -157,7 +157,6 @@ public class StartUI {
         System.out.println("4. Find item by ID");
         System.out.println("5. Find items by name");
         System.out.println("6. Exit program");
-        System.out.println("Select: ");
         // добавить остальные пункты меню.
     }
 
