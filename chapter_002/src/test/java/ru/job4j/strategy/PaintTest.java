@@ -24,8 +24,35 @@ public class PaintTest {
                 is(
                         new StringBuilder()
                                 .append("+++++++")
+                                .append(System.lineSeparator())
                                 .append("+     +")
+                                .append(System.lineSeparator())
                                 .append("+     +")
+                                .append(System.lineSeparator())
+                                .append("+++++++")
+                                .append(System.lineSeparator())
+                                .toString()
+                )
+        );
+        System.setOut(stdout);
+    }
+
+    @Test
+    public void whenDrawTriangle() {
+        PrintStream stdout = System.out;
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        new Paint().draw(new Triangle());
+        assertThat(
+                out.toString(),
+                is(
+                        new StringBuilder()
+                                .append("   +")
+                                .append(System.lineSeparator())
+                                .append("  + + ")
+                                .append(System.lineSeparator())
+                                .append(" +   +")
+                                .append(System.lineSeparator())
                                 .append("+++++++")
                                 .append(System.lineSeparator())
                                 .toString()
