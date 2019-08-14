@@ -91,7 +91,7 @@ public class StartUI {
         long create = System.currentTimeMillis();
         Item item = new Item(name, desc, create);
         this.tracker.add(item);
-        System.out.println("------------ Новая заявка с ID : " + item.getId() + "-----------");
+        System.out.println("------------ Новая заявка с ID : " + item.getId() + " -----------");
     }
 
     private void getAllItems() {
@@ -136,7 +136,7 @@ public class StartUI {
         }
     }
     private void findByIdItem() {
-        System.out.println("------------ Поиск заявки по ID--------------");
+        System.out.println("------------ Поиск заявки по ID --------------");
         String id = this.input.ask("Введите ID заявки для поиска");
         Item item = this.tracker.findById(id);
         if (item != null) {
@@ -151,7 +151,7 @@ public class StartUI {
     }
 
     private void findByNameItem() {
-        System.out.println("------------ Поиск заявки по имени--------------");
+        System.out.println("------------ Поиск заявки по имени --------------");
         String key = this.input.ask("Введите имя заявки для поиска");
         Item[] item = this.tracker.findByName(key);
         if (item.length != 0) {
