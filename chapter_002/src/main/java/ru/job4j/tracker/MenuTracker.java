@@ -3,10 +3,6 @@ package ru.job4j.tracker;
 public class MenuTracker {
 
     /**
-     * @param хранит переменную для выхода из программы
-     */
-    private static String exit = "n";
-    /**
      * @param хранит ссылку на объект .
      */
     private Input input;
@@ -28,21 +24,6 @@ public class MenuTracker {
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
-    }
-
-    /**
-     *
-     * @param exit параметр для переменной выхода
-     */
-    public void setExit(String exit) {
-        this.exit = exit;
-    }
-
-    /**
-     * @return возвращает переменную выхода
-     */
-    public String getExit() {
-        return exit;
     }
 
     /**
@@ -230,12 +211,17 @@ public class MenuTracker {
      */
     private class ExitProgram implements UserAction {
 
+        private final StartUI ui;
+
+        ExitProgram(StartUI ui) {
+            this.ui = ui;
+        }
         public int key() {
             return 6;
         }
 
         public  void execute(Input input, Tracker tracker) {
-            new MenuTracker(input, tracker).setExit("y");
+            this.ui.stop();
         }
 
         public  String info() {
@@ -246,14 +232,14 @@ public class MenuTracker {
     /**
      * Метод заполняет массив.
      */
-    public void fillActions() {
+    public void fillActions(StartUI ui) {
         this.actions[0] = this.new CreateItem();
         this.actions[1] = this.new GetAllItems();
         this.actions[2] = this.new EditItem();
         this.actions[3] = this.new DeleteItem();
         this.actions[4] = this.new FindByIdItem();
         this.actions[5] = this.new FindItemsByName();
-        this.actions[6] = this.new ExitProgram();
+        this.actions[6] = this.new ExitProgram(ui);
     }
 
     /**
