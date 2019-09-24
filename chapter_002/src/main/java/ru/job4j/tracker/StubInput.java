@@ -9,10 +9,13 @@ public class StubInput implements Input {
         this.value = value;
     }
 
-    @Override
     public String ask(String question) {
         System.out.println(question);
-
         return this.value[this.position++];
+    }
+
+    public int ask(String question, int[] range) {
+        System.out.println(question);
+        return Integer.valueOf(this.value[this.position++]);
     }
 }

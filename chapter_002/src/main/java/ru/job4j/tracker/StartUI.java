@@ -4,7 +4,7 @@ package ru.job4j.tracker;
 public class StartUI {
 
     /**
-     * @param хранит переменную для выхода из программы
+     *  хранит переменную для выхода из программы
      */
     private String exit = "n";
 
@@ -34,10 +34,14 @@ public class StartUI {
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, tracker);
         menu.fillActions(this);
+        int length = menu.getActionsLength();
+        int[] ranges = new int[length];
+        for (int i = 0; i < length; i++) {
+            ranges[i] = i;
+        }
         do {
             menu.show();
-            int key = Integer.valueOf(input.ask("Введите пункт меню : "));
-            menu.select(key);
+            menu.select(input.ask("Введите пункт меню : ", ranges));
         } while (!"y".equals(this.exit));
     }
 
@@ -50,6 +54,6 @@ public class StartUI {
      * @param args аргументы
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }

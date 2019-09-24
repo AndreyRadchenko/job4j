@@ -3,15 +3,15 @@ package ru.job4j.tracker;
 public class MenuTracker {
 
     /**
-     * @param хранит ссылку на объект .
+     *  хранит ссылку на объект .
      */
     private Input input;
     /**
-     * @param хранит ссылку на объект .
+     *  хранит ссылку на объект .
      */
     private Tracker tracker;
     /**
-     * @param хранит ссылку на массив типа UserAction.
+     * хранит ссылку на массив типа UserAction.
      */
     private UserAction[] actions = new UserAction[7];
 
@@ -24,6 +24,15 @@ public class MenuTracker {
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
+    }
+
+    /**
+     * Метод для получения массива меню.
+     *
+     * @return длину массива
+     */
+    public int getActionsLength() {
+        return this.actions.length;
     }
 
     /**
