@@ -141,4 +141,20 @@ public class StartUITest {
         );
         System.setOut(stdout);
     }
+
+    @Test
+    public void whenInvalidInput() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[]{"invalid", "1"})
+        );
+        input.ask("Введите пункт меню : ", new int[]{1});
+        assertThat(
+                out.toString(),
+                is(
+                        String.format("Введите пункт меню : \r\n"
+                                + "Введённые данные некорректны. Введите цифру\r\n"
+                                + "Введите пункт меню : \r\n")
+                )
+        );
+    }
 }
