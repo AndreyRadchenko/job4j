@@ -16,6 +16,18 @@ public class StubInput implements Input {
 
     public int ask(String question, int[] range) {
         System.out.println(question);
-        return Integer.valueOf(this.value[this.position++]);
+        int key = Integer.valueOf(this.value[this.position++]);
+        boolean exist = false;
+        for (int value: range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Необходимо ввести цифру из диапазона меню. Введите ещё раз");
+        }
     }
 }

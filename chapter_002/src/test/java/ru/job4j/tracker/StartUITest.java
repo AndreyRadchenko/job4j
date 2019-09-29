@@ -144,15 +144,39 @@ public class StartUITest {
 
     @Test
     public void whenInvalidInput() {
-        ValidateInput input = new ValidateInput(
-                new StubInput(new String[]{"invalid", "1"})
-        );
-        input.ask("Введите пункт меню : ", new int[]{1});
+        ValidateInput input = new ValidateInput(new StubInput(new String[]{"invalid", "6"}));
+        MenuTracker menu = new MenuTracker(input, new Tracker());
+        int length = menu.getActionsLength();
+        int[] ranges = new int[length];
+        for (int i = 0; i < length; i++) {
+            ranges[i] = i;
+        }
+        input.ask("Введите пункт меню : ", ranges);
         assertThat(
                 out.toString(),
                 is(
                         String.format("Введите пункт меню : \r\n"
                                 + "Введённые данные некорректны. Введите цифру\r\n"
+                                + "Введите пункт меню : \r\n")
+                )
+        );
+    }
+
+    @Test
+    public void whenInputNumberIsOutOfException() {
+        ValidateInput input = new ValidateInput(new StubInput(new String[]{"7", "6"}));
+        MenuTracker menu = new MenuTracker(input, new Tracker());
+        int length = menu.getActionsLength();
+        int[] ranges = new int[length];
+        for (int i = 0; i < length; i++) {
+            ranges[i] = i;
+        }
+        input.ask("Введите пункт меню : ", ranges);
+        assertThat(
+                out.toString(),
+                is(
+                        String.format("Введите пункт меню : \r\n"
+                                + "Необходимо ввести цифру из диапазона меню. Введите ещё раз\r\n"
                                 + "Введите пункт меню : \r\n")
                 )
         );
