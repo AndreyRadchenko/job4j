@@ -195,8 +195,11 @@ public class MenuTracker {
      */
     private class ExitProgram extends BaseAction {
 
+        private final StartUI ui;
+
         public ExitProgram(StartUI ui, int key, String name) {
-            super(ui, key, name);
+            super(key, name);
+            this.ui = ui;
         }
 
         public void execute(Input input, Tracker tracker) {
